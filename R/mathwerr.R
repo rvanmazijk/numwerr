@@ -16,7 +16,6 @@ assume_zero_error <- function(x) {
 #' @param operation One of the four standard arithmetic operations (+, -, * or /)
 #'
 #' @return A function
-#' @export
 #'
 #' @examples
 mathwerr <- function(operation = c("+", "-", "*", "/")) {

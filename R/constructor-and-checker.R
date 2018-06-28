@@ -4,7 +4,6 @@
 #' @param err A numeric, specifying the error or uncertainty of `val`
 #'
 #' @return A numwerr
-#' @export
 #'
 #' @examples
 numwerr <- function(val, err) {
@@ -19,7 +18,6 @@ numwerr <- function(val, err) {
 #' @param err A numeric, specifying the error or uncertainty of `val`
 #'
 #' @return A numwerr
-#' @export
 #'
 #' @examples
 `%?%` <- function(val, err) {
@@ -31,7 +29,6 @@ numwerr <- function(val, err) {
 #' @param x An atomic vector
 #'
 #' @return A boolean
-#' @export
 #'
 #' @examples
 is.numwerr <- function(x) {
