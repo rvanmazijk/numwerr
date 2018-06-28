@@ -1,8 +1,8 @@
-print.numwerr <- function(x) {
-  print(glue::glue("{x$val} +- {x$err}"))
+print.numwerr <- function(...) {
+  # TODO
 }
 c.numwerr <- function(...) {
-  list(...)
+  # TODO
 }
 mean.numwerr <- function(...) {
   # TODO
