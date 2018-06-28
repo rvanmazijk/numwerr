@@ -1,16 +1,3 @@
-#' Comvert a numeric to a numwerr by assuming 0 error
-#'
-#' @param x A numeric
-#'
-#' @return A numwerr
-#' @export
-#'
-#' @examples
-assume_zero_error <- function(x) {
-  stopifnot(is.numeric(x))
-  numwerr(x, 0)
-}
-
 #' Implement error propagation rules depending on operation supplied
 #'
 #' @param operation One of the four standard arithmetic operations (+, -, * or /)
@@ -22,8 +9,8 @@ mathwerr <- function(operation = c("+", "-", "*", "/")) {
   if (operation %in% c("+", "-")) {
     return(function(x, y) {
       stopifnot(is.numwerr(x) | is.numwerr(y))
-      if (is.numeric(x)) x <- assume_zero_error(x)
-      if (is.numeric(y)) y <- assume_zero_error(y)
+      if (is.numeric(x)) x <- as.numwerr(x)
+      if (is.numeric(y)) y <- as.numwerr(y)
       val = eval(parse(text =
         as.character(paste("x$val", operation, "y$val"))
       ))
@@ -51,6 +38,7 @@ mathwerr <- function(operation = c("+", "-", "*", "/")) {
     })
   }
 }
+
 # Generate arithmetic functions
 `%+?%` <- mathwerr("+")
 `%-?%` <- mathwerr("-")

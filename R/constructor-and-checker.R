@@ -34,3 +34,21 @@ numwerr <- function(val, err) {
 is.numwerr <- function(x) {
   class(x) == "numwerr"
 }
+
+assume_zero_error <- function(x) {
+  numwerr(x, 0)
+}
+as.numwerr <- function(x, ...) {
+  UseMethod("as.numwerr", x)
+}
+
+#' Comvert a numeric to a numwerr by assuming 0 error
+#'
+#' @param x A numeric
+#'
+#' @return A numwerr
+#'
+#' @examples
+as.numwerr.numeric <- function(x) {
+  assume_zero_error(x)
+}
